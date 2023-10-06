@@ -2,23 +2,24 @@ version: '3.4'
 services:
   netbox:
     ports:
-    - 8080:8081
+    - 89:8080
     volumes:
-    - /volume1/home/Docker/netbox:/home/Docker/netbox/config:z,ro
-    - netbox-media-files:/home/Docker/netbox/netbox/media:z,rw
-    - netbox-reports-files:/home/Docker/netbox/reports:z,rw
-    - netbox-scripts-files:/home/Docker/netbox/scripts:z,rw
+    - /volume1/docker/netbox:/etc/netbox/config:z,ro
+    - netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
     healthcheck:
       retries: 15
   netbox-worker:
     volumes:
-    - /volume1/home/Docker/netbox:/home/Docker/netbox/config:z,ro
-    - netbox-media-files:/home/Docker/netbox/media:z,rw
-    - netbox-reports-files:/home/Docker/netbox/reports:z,rw
-    - netbox-scripts-files:/home/Docker/netbox/scripts:z,rw
+    - /volume1/docker/netbox:/etc/netbox/config:z,ro
+    - netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
   netbox-housekeeping:
     volumes:
-    - /volume1/home/Docker/netbox:/home/Docker/netbox/config:z,ro
-    - netbox-media-files:/home/Docker/netbox/media:z,rw
-    - netbox-reports-files:/home/Docker/netbox/reports:z,rw
-    - netbox-scripts-files:/home/Docker/netbox/scripts:z,rw
+    - /volume1/docker/netbox:/etc/netbox/config:z,ro
+    - netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+  network_mode: bridge 
