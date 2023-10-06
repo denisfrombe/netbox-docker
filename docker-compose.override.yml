@@ -4,22 +4,22 @@ services:
     ports:
     - 89:8080
     volumes:
-    - /volume1/docker/netbox:/etc/netbox/config:z,ro
-    - netbox-media-files:/opt/netbox/netbox/media:z,rw
-    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
-    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    - /home/Docker/netbox-docker/:/etc/netbox/config:z,ro
+    - /home/Docker/netbox-docker/netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - /home/Docker/netbox-docker/netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - /home/Docker/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
     healthcheck:
       retries: 15
   netbox-worker:
     volumes:
-    - /volume1/docker/netbox:/etc/netbox/config:z,ro
-    - netbox-media-files:/opt/netbox/netbox/media:z,rw
-    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
-    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    - /home/Docker/netbox-docker/:/etc/netbox/config:z,ro
+    - /home/Docker/netbox-docker/netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - /home/Docker/netbox-docker/netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - /home/Docker/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
   netbox-housekeeping:
     volumes:
-    - /volume1/docker/netbox:/etc/netbox/config:z,ro
-    - netbox-media-files:/opt/netbox/netbox/media:z,rw
-    - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
-    - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    - /home/Docker/netbox-docker/:/etc/netbox/config:z,ro
+    - /home/Docker/netbox-docker/netbox-media-files:/opt/netbox/netbox/media:z,rw
+    - /home/Docker/netbox-docker/netbox-reports-files:/opt/netbox/netbox/reports:z,rw
+    - /home/Docker/netbox-docker/netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
   network_mode: bridge 
